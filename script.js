@@ -49,7 +49,7 @@ function initParticles() {
 
 function animate() {
   ctx.clearRect(0, 0, width, height);
-  
+
   // Draw connections
   for (let i = 0; i < particles.length; i++) {
     particles[i].update();
@@ -76,3 +76,24 @@ function animate() {
 
 initParticles();
 animate();
+
+// Mobile Navigation Toggle
+const menuToggle = document.querySelector('.menu-toggle');
+const sidebar = document.querySelector('.sidebar');
+const main = document.querySelector('.main');
+
+if (menuToggle) {
+  menuToggle.addEventListener('click', () => {
+    sidebar.classList.toggle('active');
+  });
+}
+
+// Close sidebar when clicking outside or on a link (optional improvement)
+document.addEventListener('click', (e) => {
+  if (window.innerWidth <= 768) {
+    if (!sidebar.contains(e.target) && !menuToggle.contains(e.target) && sidebar.classList.contains('active')) {
+      sidebar.classList.remove('active');
+    }
+  }
+});
+

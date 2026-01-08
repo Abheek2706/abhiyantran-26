@@ -107,10 +107,10 @@ body::before {
 
 /* Top Nav */
 .top-nav {
-  position: fixed;
+  position: absolute;
   top: 0;
   right: 0;
-  width: calc(100% - 250px);
+  width: 100%;
   /* Match main content width */
   padding: 20px 60px;
   display: flex;
@@ -239,6 +239,94 @@ body::before {
   line-height: 1.6;
 }
 
+/* Hero Car Animation removed */
+
 /* Sky Traffic Animation removed */
 
 /* Flying Car Animation removed */
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+    font-size: 24px;
+    cursor: pointer;
+    color: white;
+  }
+
+  .sidebar {
+    left: -250px;
+    transition: 0.3s;
+    width: 250px;
+    background: rgba(11, 11, 37, 0.95);
+    /* More opaque on mobile */
+  }
+
+  .sidebar.active {
+    left: 0;
+  }
+
+  .main {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .top-nav {
+    width: 100%;
+    padding: 15px 20px;
+    /* Smaller padding */
+    justify-content: space-between;
+  }
+
+  .top-nav ul {
+    display: none;
+    /* Hide top links on mobile, assuming they are in sidebar or we want to simplify */
+  }
+
+  .top-nav .btn {
+    display: none;
+    /* Hide Sign In on mobile to save space, or move to sidebar */
+  }
+
+  .hero-content {
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+    align-items: center;
+  }
+
+  .hero h1 {
+    font-size: 40px;
+    /* Smaller font */
+  }
+
+  .hero p {
+    font-size: 18px;
+  }
+
+  .hero-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .hero-buttons button {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .section {
+    padding: 40px 20px;
+  }
+
+  .card {
+    padding: 20px;
+  }
+}
+
+/* Hide toggle on desktop */
+@media (min-width: 769px) {
+  .menu-toggle {
+    display: none;
+  }
+}
